@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+        <a href="/carts"><img class="mynd" src='static/karfa.jpg'>( {{fjoldi}} )</a> 
+    </head>
+    <body>
+        <br>
+        <header>
+            <h1>
+                Netverslun
+            </h1>
+        </header>
+        <div>
+            {% for x in v %}
+            <a href="/"><img class="mynd2" src='static/{{x[2]}}'>{{x[3]}}$</a>
+            {{x[1]}}
+            {% endfor %}
+        </div>
+        <footer>
+
+        </footer>
+    </body>
+</html>
