@@ -16,7 +16,7 @@ def index():
 	if 'karfa' in session:
 		karfa=session['karfa']
 		fjoldi=len(karfa)
-	return render_template("home.html", v=vorur, fjoldi=fjoldi)
+	return render_template("home.html", v=vorur, fjoldi=fjoldi, karfa=karfa)
 
 @app.route("/add/<int:id>")
 def listir(id):
@@ -26,16 +26,39 @@ def listir(id):
 		karfa=session['karfa']
 		karfa.append(vorur[id])
 		session['karfa']=karfa
-
+		fjoldi=len(karfa)
+		total= []
+		for x in karfa:
+			total.append(x[3])
+		summa=sum(total)
+		return render_template("carts.html", v=vorur, fjoldi=fjoldi, karfa=karfa, summa=summa)
 	else:
 		karfa.append(vorur[id])
 		session['karfa']=karfa
 		fjoldi=len(karfa)
-	return render_template("home.html", v=vorur, fjoldi=fjoldi)
+		total= []
+		for x in karfa:
+			total.append(x[3])
+		summa=sum(total)
+		return render_template("carts.html", v=vorur, fjoldi=fjoldi, karfa=karfa, summa=summa)
 
 @app.route('/carts')
 def carts():
-	return render_template("carts.html")
+	karfa=session['karfa']
+	fjoldi=len(karfa)
+	total= []
+	for x in karfa:
+		total.append(x[3])
+	summa=sum(total)
+	return render_template("carts.html", v=vorur, fjoldi=fjoldi, karfa=karfa, summa=summa)
+
+@app.route('/off')
+def sessionoff():
+    if 'karfa' in session:
+        session.pop('karfa', None)
+        return '<h3>Session poped</h3><h3><a href="/">Home</a></h3>'
+    else:
+        return '<h3>Session was not set</h3><h3><a href="/">Home</a></h3>'
 
 if __name__ == "__main__":
 	app.run(debug=True)

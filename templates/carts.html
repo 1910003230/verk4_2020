@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>carts</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="static/style2.css">
+        <img class="mynd" src='static/karfa.jpg'>( {{fjoldi}} )
+        <a href="/">Versla meira</a> 
     </head>
     <body>
-        <h1>lol</h1>
+        <br>
+        {% for x in karfa %}
+            <a href="/off">{{x[1]}} - verð: {{x[3]}}</a> <br>
+        {% endfor %}
+        samtals verð : {{summa}} kr
     </body>
     <footer>
 

@@ -1,0 +1,44 @@
+body{
+	max-width: 70em;
+    margin: 0 auto;
+    padding: 1em;
+	font-family: sans-serif;
+	line-height: 1;
+    background-color: blanchedalmond;
+    border: 1px solid red;
+}
+header,
+nav,
+section,
+div,
+footer{
+    flex: 1 100%
+}
+
+header{
+	order: 1;
+	background: burlywood;
+    text-align: center;
+}
+nav{
+    order: 2;
+}
+div{
+    order: 3;
+}
+
+.mynd{
+	display: inline-block;
+    padding: 0 auto;
+    max-width: 2em;
+    margin: 1em;
+    border: 3px crimson;
+
+}
+.mynd2{
+    display: inline-block;
+    padding: 0 auto;
+    max-width: 20em;
+    margin: 1em;
+    border: 3px crimson;
+}
